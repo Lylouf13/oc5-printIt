@@ -104,9 +104,10 @@ header {
 	background-color: var(--secondary-color);
 }
 
+/* ------------- Banner classes --------*/
 #banner {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
@@ -125,6 +126,9 @@ header {
 /* Gestion des fleches du carrousel */
 #banner .arrow {
 	position: absolute;
+    appearance: none;
+    background: none;
+    border: none;
 }
 #banner .arrow_left {
 	left: 10px;
