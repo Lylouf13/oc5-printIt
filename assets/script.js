@@ -1,10 +1,17 @@
+// Getting Arrow elements
 const arrows = document.querySelectorAll(".arrow")
+
+// Getting Dots Container
 const dotsContainer = document.querySelector(".dots")
-const carousselCurrent = document.querySelector(".banner-img")
 const dots = []
 
-let carousselIndex = 0;
+// Getting the caroussel img
+const carousselCurrent = document.querySelector(".banner-img")
+let carousselIndex = 0
+// Getting the caroussel txt
+const carousselText = document.getElementById("banner-txt")
 
+// Container for image paths to give to the caroussel
 const slides = [
 	{
 		"image":"./assets/images/slideshow/slide1.jpg",
@@ -24,8 +31,7 @@ const slides = [
 	}
 ]
 
-
-
+// Dots Generation
 for (let i=0; i<slides.length; i++){
 	let newDot = document.createElement("div")
 	newDot.classList.add("dot")
@@ -33,10 +39,10 @@ for (let i=0; i<slides.length; i++){
 		newDot.classList.add("dot_selected")
 	}
 	dotsContainer.appendChild(newDot)
-	dots.push(newDot);
+	dots.push(newDot)
 }
 
-
+// Arrow Functions => will modify the caroussel state
 arrows[0].addEventListener("click", () =>{
 	dots[carousselIndex].classList.remove("dot_selected")
 
@@ -46,9 +52,10 @@ arrows[0].addEventListener("click", () =>{
 	else{	
 		carousselIndex--
 	}
+
 	dots[carousselIndex].classList.add("dot_selected")
 	carousselCurrent.setAttribute("src", slides[carousselIndex].image)
-
+	carousselText.innerHTML=slides[carousselIndex].tagLine
 })
 
 arrows[1].addEventListener("click", () =>{
@@ -61,5 +68,6 @@ arrows[1].addEventListener("click", () =>{
 
 	dots[carousselIndex].classList.add("dot_selected")
 	carousselCurrent.setAttribute("src", slides[carousselIndex].image)
+	carousselText.innerHTML=slides[carousselIndex].tagLine
 })
 
